@@ -1,0 +1,11 @@
+{
+  "name": "project-3",
+  "version": "1.0.0",
+  "description": "oc-p3",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/main.scss:./dist/css/main.css --style expanded"
+  },
+  "author": "emilio",
+  "license": "ISC"
+}

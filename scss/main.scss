@@ -1,0 +1,196 @@
+@import "./resets";
+@import "./variables";
+
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+@mixin button{
+    font-size: 1rem;
+    color: white;
+    background: $secondary-color;
+    height: 3.3rem;
+    border-radius: 3rem;
+    padding: 0 1.6rem;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    width: 100%;
+    margin: auto;
+}
+
+h4{
+    font-weight: 400;
+}
+
+.top {
+    position: relative;
+    & h1{
+    font-family: 'Shrikhand', cursive;
+    text-align: center;
+    margin: 0.5rem;
+    font-size: 1.8rem;
+    }
+    & .fa-arrow-left{
+        font-size: 1.2rem;
+        color: black;
+        position: absolute;
+        top: 0.5rem;
+        left: 2rem;
+    }
+}
+
+.background-img {
+    width: 100%;
+    height: 17rem;
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.explore-menu{
+    &__location{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: $background-color-1;
+        & .fa-map-marker-alt{
+            position: absolute;
+            margin-right: 10rem;
+            margin-bottom: 0.2rem;
+        }
+        & h4{
+            margin: 1rem 0;
+        }
+    }
+    &__book{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        align-items: center;
+        text-align: center;
+        background: $background-color-2;
+        & button{
+            @include button;
+        }
+    }
+}
+
+.how-it-works{
+    padding: $padding-main;
+    &__wrap{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        &__step{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: $background-color-2;
+            border-radius: 1.5rem;
+            position: relative;
+            & .number{
+                width: 1.5rem;
+                height: 1.5rem;
+                text-align: center;
+                background: $primary-color;
+                color: white;
+                border-radius: 2rem;
+                position: relative;
+                left: -0.6rem;
+            }
+            & .icon{
+                width: 1rem;
+                margin: 0 1rem;
+                color: #707070;
+            }
+        }
+    }
+}
+
+.restaurants{
+    padding: $padding-main;
+    background: $background-color-2;
+    &__wrap{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        &__card{
+        display: flex;
+        flex-direction: column;
+                
+        text-decoration: none;
+        color: black;
+        height: 250px;
+        width: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: $border-card;
+        justify-content: center;
+            & img{
+                height: 70%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: $border-img;
+                margin-bottom: 0px;
+            }
+            &__name{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                position: relative;
+                background: white;
+                height: 30%;
+                border-radius: $border-name;
+                padding: 1rem;
+                & h3, h4{
+                    margin: 0;
+                }
+                
+                & .fa-heart{
+                    position: absolute;
+                    right: 2rem;
+                    top: 1.5rem;
+                    font-size: 1.5rem;
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    background: $background-color-3;
+    padding: $padding-main;
+    color: white;
+    & h3{
+        font-family: 'Shrikhand';
+        font-weight: 400;
+        margin: 0;
+    }
+    & h4{
+        margin-bottom: -0.6rem;
+    }
+    & div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        & .footericon{
+            margin-right: 1rem;
+            position: relative;
+            top: 1rem;
+        }
+    }
+}
