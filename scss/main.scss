@@ -29,32 +29,17 @@ h4{
     font-weight: 400;
 }
 
+/*title for every page*/
 .top {
     position: relative;
-    & h1{
+    h1{
     font-family: 'Shrikhand', cursive;
     text-align: center;
-    margin: 0.5rem;
+    margin: 0.6rem;
     font-size: 1.8rem;
-    }
-    & .fa-arrow-left{
-        font-size: 1.2rem;
-        color: black;
-        position: absolute;
-        top: 0.5rem;
-        left: 2rem;
     }
 }
 
-.background-img {
-    width: 100%;
-    height: 17rem;
-    & img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-}
 
 .explore-menu{
     &__location{
@@ -69,17 +54,26 @@ h4{
             margin-right: 10rem;
             margin-bottom: 0.2rem;
         }
-        & h4{
+        h4{
             margin: 1rem 0;
         }
     }
     &__book{
         display: flex;
         flex-direction: column;
-        padding: 2rem;
+        padding: $padding-main;
         align-items: center;
         text-align: center;
         background: $background-color-2;
+
+        h2{
+            padding: 0.5rem 0;
+        }
+        h3{
+            font-size: 1.1rem;
+            font-weight: 300;
+            padding: 2rem 0;
+        }
         & button{
             @include button;
         }
@@ -88,32 +82,42 @@ h4{
 
 .how-it-works{
     padding: $padding-main;
+    h2{
+        padding: 1rem 0;
+    }
     &__wrap{
         display: flex;
         flex-direction: column;
-        row-gap: 1rem;
-        &__step{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background: $background-color-2;
-            border-radius: 1.5rem;
+    }
+    &__step{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: $background-color-2;
+        border-radius: 1.5rem;
+        box-shadow: $shadow;
+        position: relative;
+        margin: 0.7rem 0 0.7rem 0.6rem;
+        padding: 1.5rem 0;
+        & .number{
+            width: 1.5rem;
+            height: 1.5rem;
+            text-align: center;
+            background: $primary-color;
+            color: white;
+            border-radius: 2rem;
             position: relative;
-            & .number{
-                width: 1.5rem;
-                height: 1.5rem;
-                text-align: center;
-                background: $primary-color;
-                color: white;
-                border-radius: 2rem;
-                position: relative;
-                left: -0.6rem;
-            }
-            & .icon{
-                width: 1rem;
-                margin: 0 1rem;
-                color: #707070;
-            }
+            left: -0.6rem;
+            padding: 0.2rem 0.1rem 0 0;
+        }
+        & .icon{
+            width: 1.5rem;
+            margin: 0 1rem;
+            color: $background-color-3;
+            font-size: 1.1rem;
+        }
+        h4{
+            font-weight: 500;
         }
     }
 }
@@ -121,76 +125,191 @@ h4{
 .restaurants{
     padding: $padding-main;
     background: $background-color-2;
+    h2{
+        padding: 1.4rem 0;
+    }
+    h3{
+        font-size: 1.1rem;
+    }
     &__wrap{
         display: flex;
         flex-direction: column;
-        row-gap: 1rem;
-        &__card{
+        
+        row-gap: 1.2rem;
+    }
+    &__card{
+        position: relative;
+        a{
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: black;
+            height: 250px;
+            width: 100%;
+            box-shadow:$shadow;
+            border-radius: $border-card;
+            justify-content: center;
+                img{
+                    height: 70%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: 0 100%;
+                    border-radius: $border-img;
+                    margin-bottom: 0px;
+                }
+                #tall-picture{
+                    object-position: 0 60%;
+                }
+                
+        }
+        .fa-heart{
+            position: absolute;
+            right: 2rem;
+            bottom: 2rem;
+            font-size: 1.5rem;
+            color: $primary-color;
+            outline-color: yellow;
+            z-index: 100;
+            &.empty{
+                color: black;
+            }
+            &.full{
+                display: none;
+            }
+            &.empty:hover{
+                cursor: pointer;
+                color: $primary-color;
+            }
+            &.empty:hover + .full{
+                display: block;
+                z-index: 99;
+                }
+        }
+    }
+    
+    &__name{
         display: flex;
         flex-direction: column;
-                
-        text-decoration: none;
-        color: black;
-        height: 250px;
-        width: 100%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        border-radius: $border-card;
-        justify-content: center;
-            & img{
-                height: 70%;
-                width: 100%;
-                object-fit: cover;
-                border-radius: $border-img;
-                margin-bottom: 0px;
-            }
-            &__name{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                position: relative;
-                background: white;
-                height: 30%;
-                border-radius: $border-name;
-                padding: 1rem;
-                & h3, h4{
-                    margin: 0;
-                }
-                
-                & .fa-heart{
-                    position: absolute;
-                    right: 2rem;
-                    top: 1.5rem;
-                    font-size: 1.5rem;
-                    color: $primary-color;
-                }
-            }
+        justify-content: space-between;
+        position: relative;
+        background: white;
+        height: 30%;
+        border-radius: $border-name;
+        padding: 1rem;
+        & h3, h4{
+            margin: 0;
         }
     }
 }
+
+/*-----------------------------------------style for pages of restaurants------------------------------*/
+    /*home button*/
+     .fa-arrow-left{  
+        font-size: 1.2rem;
+        color: black;
+        position: absolute;
+        top: 0.5rem;
+        left: 2rem;
+    }
+    
+/*top image for each restaurant's page*/
+.background-img {
+    width: 100%;
+    height: 17rem;
+    z-index: 1;
+    position: relative;
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+
+    }
+}
+.menu{
+    background-color: $background-color-2;    
+    padding: $padding-main;
+    border-radius: 2.5rem 2.5rem 0 0;
+    margin-top: -3.3rem;
+    position: relative;
+    z-index: 2;
+    .restaurant-name{
+        font-family: Shrikhand;
+        font-size: 1.7rem;
+        font-weight: 500;
+        padding:0.3rem 0 2rem 0;
+    }
+    &__wrap{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    &__dish{
+        display: flex;
+        flex-direction: column;
+        width: 105%;
+        margin-left: -2.5%;
+        background: white;
+        border-radius: $border-card;
+        padding: 0.7rem;
+        box-shadow: $shadow;
+        h3{
+            font-weight: 700;
+        }
+
+        &--price{
+            font-weight: 700;
+        }
+    }
+    &__section{
+        h3{
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        p{
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+    }
+    &__descript{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
+
 
 footer{
     display: flex;
     flex-direction: column;
     background: $background-color-3;
-    padding: $padding-main;
+    padding: $padding-footer;
     color: white;
-    & h3{
+    h3{
         font-family: 'Shrikhand';
+        font-weight: 0.8rem;
         font-weight: 400;
-        margin: 0;
+        margin: 0 0 1rem 0;
     }
-    & h4{
-        margin-bottom: -0.6rem;
-    }
-    & div{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        & .footericon{
-            margin-right: 1rem;
-            position: relative;
-            top: 1rem;
+    .foot-section{
+        li{
+            margin-bottom: 0.5rem;
+            list-style: none;
+            a{
+                color: white;
+            }
+            .footericon{
+                width: 1rem;
+                font-size: 0.8rem;
+                margin-right: 1rem;
+            }
+            h4{
+                display: inline-block;
+            }
         }
     }
+
 }
