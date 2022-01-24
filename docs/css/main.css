@@ -137,9 +137,6 @@
   90% {
     opacity: 0;
   }
-  100% {
-    z-index: -10;
-  }
 }
 
 @keyframes spinner {
@@ -165,9 +162,6 @@
   }
   90% {
     opacity: 0;
-  }
-  100% {
-    z-index: -10;
   }
 }
 
