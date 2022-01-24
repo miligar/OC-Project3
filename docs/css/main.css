@@ -118,6 +118,7 @@
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     opacity: 1;
+    z-index: 100;
   }
   25% {
     -webkit-transform: rotate(90deg);
@@ -131,9 +132,13 @@
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
     opacity: 1;
+    z-index: 100;
   }
   90% {
     opacity: 0;
+  }
+  100% {
+    z-index: -10;
   }
 }
 
@@ -142,6 +147,7 @@
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     opacity: 1;
+    z-index: 100;
   }
   25% {
     -webkit-transform: rotate(90deg);
@@ -155,9 +161,13 @@
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
     opacity: 1;
+    z-index: 100;
   }
   90% {
     opacity: 0;
+  }
+  100% {
+    z-index: -10;
   }
 }
 
@@ -165,6 +175,7 @@
   0% {
     color: #9356DC;
     opacity: 1;
+    z-index: 100;
   }
   25% {
     color: #FF79DA;
@@ -177,9 +188,11 @@
   }
   95% {
     opacity: 1;
+    z-index: 100;
   }
   100% {
     opacity: 0;
+    z-index: -10;
   }
 }
 
@@ -187,6 +200,7 @@
   0% {
     color: #9356DC;
     opacity: 1;
+    z-index: 100;
   }
   25% {
     color: #FF79DA;
@@ -199,9 +213,11 @@
   }
   95% {
     opacity: 1;
+    z-index: 100;
   }
   100% {
     opacity: 0;
+    z-index: -10;
   }
 }
 
@@ -223,7 +239,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 101;
 }
 
 .load__spinner {
@@ -472,7 +487,7 @@ body {
   bottom: 2rem;
   font-size: 1.5rem;
   color: #9356DC;
-  z-index: 100;
+  z-index: 99;
 }
 
 .restaurants__card .fa-heart.empty {
@@ -490,7 +505,7 @@ body {
 
 .restaurants__card .fa-heart.empty:hover + .full {
   display: block;
-  z-index: 99;
+  z-index: 98;
 }
 
 .restaurants__name {

@@ -16,7 +16,6 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-    z-index:101;
     &__spinner{
       position: absolute;
       width: 12rem;
@@ -183,7 +182,7 @@ body{
             bottom: 2rem;
             font-size: 1.5rem;
             color: $primary-color;
-            z-index: 100;
+            z-index: 99;
             &.empty{
                 color: black;
             }
@@ -196,7 +195,7 @@ body{
             }
             &.empty:hover + .full{
                 display: block;
-                z-index: 99;
+                z-index: 98;
                 }
         }
     }
