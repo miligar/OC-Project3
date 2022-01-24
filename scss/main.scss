@@ -1,33 +1,48 @@
 @import "./resets";
 @import "./variables";
+@import "./mixins&maps&keys";
 
 
-*{
-    font-family: 'Roboto', sans-serif;
-}
-
-
-@mixin button{
-    font-size: 1rem;
-    color: white;
-    background: $secondary-color;
-    height: 3.3rem;
-    border-radius: 3rem;
-    padding: 0 1.6rem;
-}
-
-html{
-    font-size: 16px;
-}
 
 body{
     width: 100%;
     margin: auto;
 }
 
-h4{
-    font-weight: 400;
-}
+.load{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index:101;
+    &__spinner{
+      position: absolute;
+      width: 12rem;
+      height: 12rem;
+      border: 3px solid black;
+      border-radius: 50%;
+      border-top-color: #9356DC;
+      border-left-color: #FF79DA;
+      border-bottom-color: #99E2D0;
+      border-right-color: black;
+      opacity:0;
+      animation: spinner 2.5s 0.5s backwards;
+    }
+    &__title{
+      display: flex;
+      width: 100%;
+      height:100%;
+      justify-content: center;
+      align-items: center;
+      animation: title 2.5s 0.5s backwards ;
+      opacity:0;
+      background-color: white;
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.8rem;
+    }
+  }
 
 /*title for every page*/
 .top {
@@ -36,7 +51,6 @@ h4{
     font-family: 'Shrikhand', cursive;
     text-align: center;
     margin: 0.6rem;
-    font-size: 1.8rem;
     }
 }
 
@@ -56,6 +70,7 @@ h4{
         }
         h4{
             margin: 1rem 0;
+            font-weight: map-get($font-weights, regular)
         }
     }
     &__book{
@@ -70,8 +85,7 @@ h4{
             padding: 0.5rem 0;
         }
         h3{
-            font-size: 1.1rem;
-            font-weight: 300;
+            font-weight: map-get($font-weights, light);
             padding: 2rem 0;
         }
         & button{
@@ -128,8 +142,8 @@ h4{
     h2{
         padding: 1.4rem 0;
     }
-    h3{
-        font-size: 1.1rem;
+    h4{
+        font-weight: map-get($font-weights, regular);
     }
     &__wrap{
         display: flex;
@@ -157,7 +171,8 @@ h4{
                     border-radius: $border-img;
                     margin-bottom: 0px;
                 }
-                #tall-picture{
+                /*positioning of picture with bigger height*/
+                #tall-picture{ 
                     object-position: 0 60%;
                 }
                 
@@ -168,7 +183,6 @@ h4{
             bottom: 2rem;
             font-size: 1.5rem;
             color: $primary-color;
-            outline-color: yellow;
             z-index: 100;
             &.empty{
                 color: black;
@@ -228,57 +242,151 @@ h4{
 }
 .menu{
     background-color: $background-color-2;    
-    padding: $padding-main;
+    padding: $padding-menu;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     border-radius: 2.5rem 2.5rem 0 0;
     margin-top: -3.3rem;
     position: relative;
     z-index: 2;
+    .restaurant{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
     .restaurant-name{
         font-family: Shrikhand;
         font-size: 1.7rem;
         font-weight: 500;
-        padding:0.3rem 0 2rem 0;
+        padding:0.3rem 0.2rem 2rem 0.2rem;
     }
+    .fa-heart{
+        position: absolute;
+        right: 2rem;
+        font-size: 1.5rem;
+        color: $primary-color;
+        z-index: 100;
+        &.empty{
+            color: black;
+        }
+        &.full{
+            display: none;
+        }
+        &.empty:hover{
+            cursor: pointer;
+            color: $primary-color;
+        }
+        &.empty:hover + .full{
+            display: block;
+            z-index: 99;
+            }
+    }
+    &__section{
+        width: 100%;
+        h3{
+            font-weight: map-get($font-weights, light);
+            padding:0.3rem 0;
+            margin-left: 0.5rem;            
+            animation: menu $anim-duration $anim-delay linear both;
+        }
+        hr{
+            width: 2.3rem;
+            border: 2px solid $tertiary-color;
+            margin-left: 0.5rem;
+            margin-bottom: 1rem;
+            animation: menu $anim-duration $anim-delay*2 linear both;
+        }
+    }
+
     &__wrap{
         display: flex;
         flex-direction: column;
         row-gap: 1.2rem;
         margin-bottom: 2rem;
     }
-    &__dish{
-        display: flex;
-        flex-direction: column;
-        width: 105%;
-        margin-left: -2.5%;
-        background: white;
-        border-radius: $border-card;
-        padding: 0.7rem;
-        box-shadow: $shadow;
-        h3{
-            font-weight: 700;
-        }
-
-        &--price{
-            font-weight: 700;
-        }
-    }
-    &__section{
-        h3{
-            font-size: 1rem;
-            font-weight: 700;
-        }
-        p{
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-        }
-    }
-    &__descript{
+    & .dish{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-    }
+        width:100%;
+        height: 70px;
+        background: white;
+        border-radius: $border-card;
+        box-shadow: $shadow;
+        overflow: hidden;
+        animation: dishes $anim-duration ease-out both;
+            @for $i from 1 through 3 {
+                &--#{$i} {
+                    animation-delay: $anim-delay*$i;
+                }
+            }
 
+        &__text{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 85%;
+            height:  70px;
+            padding: 0.7rem 0 0.7rem  0.7rem;
+        
+            h3{
+                font-weight: map-get($font-weights, medium);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0;
+                margin-left: 0;
+            }
+            p{
+                font-size: 0.9rem;
+                font-weight: map-get($font-weights, light);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        &__price{
+            display: flex;
+            height: 100%;
+            min-width: 15%;
+            padding: 0rem 1.5rem 0.7rem  0.7rem;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+        &__check{
+            min-width: 15%;
+            height: 70px;
+            border-radius: 0 1rem 1rem 0;
+            background-color: $tertiary-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .check{
+            transform: rotate(-180deg);
+            font-size: 1.5rem;
+            color: white;
+            position: center;
+        }
+    &:hover{
+        cursor:pointer;
+    }
+    &:hover  .dish__text{
+        animation: buy 0.5s forwards;
+    }
+    &:hover .check{
+        animation: check 0.5s forwards;
+    }
+    }
+}
+.order{
+    margin-top: 1rem;
+    @include button;
 }
 
 
@@ -290,8 +398,7 @@ footer{
     color: white;
     h3{
         font-family: 'Shrikhand';
-        font-weight: 0.8rem;
-        font-weight: 400;
+        font-weight: map-get($font-weights,regular);
         margin: 0 0 1rem 0;
     }
     .foot-section{
@@ -308,6 +415,7 @@ footer{
             }
             h4{
                 display: inline-block;
+                font-weight: map-get($font-weights, regular);
             }
         }
     }

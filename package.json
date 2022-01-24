@@ -4,8 +4,10 @@
   "description": "oc-p3",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./scss/main.scss:./docs/css/main.css --style expanded"
+    "sass": "sass --watch ./scss/main.scss:./docs/css/main.css --style expanded",
+    "prefix": "postcss ./docs/css/main.css --use autoprefixer -d ./docs/css/prefixed/"
   },
   "author": "emilio",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": "last 4 versions"
 }

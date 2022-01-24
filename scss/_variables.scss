@@ -7,7 +7,12 @@ $background-color-3: #303030;
 
 $padding-main: 2rem 1.2rem 4rem 1.2rem;
 $padding-footer: 1.5rem;
+$padding-menu: 2rem 0.8rem 4rem 0.8rem;
+$padding-extra: 0 0.2rem;
 $border-card: 1rem;
 $border-img: $border-card $border-card 0 0;
 $border-name: 0 0 $border-card $border-card;
 $shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+$anim-duration:0.4s;
+$anim-delay: 0.2s;
