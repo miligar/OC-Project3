@@ -41,10 +41,28 @@
   }
 }
 
+@-webkit-keyframes buy-inverse {
+  0% {
+    min-width: 70%;
+  }
+  100% {
+    min-width: 85%;
+  }
+}
+
+@keyframes buy-inverse {
+  0% {
+    min-width: 70%;
+  }
+  100% {
+    min-width: 85%;
+  }
+}
+
 @-webkit-keyframes check {
   0% {
-    -webkit-transform: rotate(-180deg);
-            transform: rotate(-180deg);
+    -webkit-transform: rotate(-420deg);
+            transform: rotate(-420deg);
   }
   100% {
     -webkit-transform: rotate(0deg);
@@ -54,12 +72,34 @@
 
 @keyframes check {
   0% {
-    -webkit-transform: rotate(-180deg);
-            transform: rotate(-180deg);
+    -webkit-transform: rotate(-420deg);
+            transform: rotate(-420deg);
   }
   100% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes check-inverse {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-420deg);
+            transform: rotate(-420deg);
+  }
+}
+
+@keyframes check-inverse {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-420deg);
+            transform: rotate(-420deg);
   }
 }
 
@@ -113,12 +153,35 @@
   }
 }
 
+@-webkit-keyframes load {
+  0% {
+    z-index: 100;
+  }
+  95% {
+    z-index: 100;
+  }
+  100% {
+    z-index: -10;
+  }
+}
+
+@keyframes load {
+  0% {
+    z-index: 100;
+  }
+  95% {
+    z-index: 100;
+  }
+  100% {
+    z-index: -10;
+  }
+}
+
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     opacity: 1;
-    z-index: 100;
   }
   25% {
     -webkit-transform: rotate(90deg);
@@ -132,7 +195,6 @@
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
     opacity: 1;
-    z-index: 100;
   }
   90% {
     opacity: 0;
@@ -144,7 +206,6 @@
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     opacity: 1;
-    z-index: 100;
   }
   25% {
     -webkit-transform: rotate(90deg);
@@ -158,7 +219,6 @@
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg);
     opacity: 1;
-    z-index: 100;
   }
   90% {
     opacity: 0;
@@ -169,7 +229,6 @@
   0% {
     color: #9356DC;
     opacity: 1;
-    z-index: 100;
   }
   25% {
     color: #FF79DA;
@@ -182,11 +241,9 @@
   }
   95% {
     opacity: 1;
-    z-index: 100;
   }
   100% {
     opacity: 0;
-    z-index: -10;
   }
 }
 
@@ -194,7 +251,6 @@
   0% {
     color: #9356DC;
     opacity: 1;
-    z-index: 100;
   }
   25% {
     color: #FF79DA;
@@ -207,21 +263,21 @@
   }
   95% {
     opacity: 1;
-    z-index: 100;
   }
   100% {
     opacity: 0;
-    z-index: -10;
   }
 }
 
 body {
   width: 100%;
   margin: auto;
+  position: relative;
+  margin-top: 0;
 }
 
 .load {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
@@ -233,6 +289,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-animation: load 2.5s 0.5s both;
+          animation: load 2.5s 0.5s both;
+  outline: 100px white solid;
 }
 
 .load__spinner {
@@ -241,13 +300,13 @@ body {
   height: 12rem;
   border: 3px solid black;
   border-radius: 50%;
-  border-top-color: #9356DC;
-  border-left-color: #FF79DA;
-  border-bottom-color: #99E2D0;
-  border-right-color: black;
+  border-top-color: #99E2D0;
+  border-left-color: black;
+  border-bottom-color: #9356DC;
+  border-right-color: #FF79DA;
   opacity: 0;
-  -webkit-animation: spinner 2.5s 0.5s backwards;
-          animation: spinner 2.5s 0.5s backwards;
+  -webkit-animation: spinner 2.5s 0.5s both;
+          animation: spinner 2.5s 0.5s both;
 }
 
 .load__title {
@@ -262,8 +321,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-animation: title 2.5s 0.5s backwards;
-          animation: title 2.5s 0.5s backwards;
+  -webkit-animation: title 2.5s 0.5s both;
+          animation: title 2.5s 0.5s both;
   opacity: 0;
   background-color: white;
   font-family: 'Shrikhand', cursive;
@@ -593,6 +652,7 @@ body {
 .menu .fa-heart {
   position: absolute;
   right: 2rem;
+  top: 2.4rem;
   font-size: 1.5rem;
   color: #9356DC;
   z-index: 100;
@@ -683,6 +743,11 @@ body {
           animation-delay: 0.6s;
 }
 
+.menu .dish--4 {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
 .menu .dish__text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -700,6 +765,8 @@ body {
   min-width: 85%;
   height: 70px;
   padding: 0.7rem 0 0.7rem  0.7rem;
+  -webkit-animation: buy-inverse 0.5s;
+          animation: buy-inverse 0.5s;
 }
 
 .menu .dish__text h3 {
@@ -756,6 +823,8 @@ body {
   font-size: 1.5rem;
   color: white;
   position: center;
+  -webkit-animation: check-inverse 0.5s;
+          animation: check-inverse 0.5s;
 }
 
 .menu .dish:hover {
