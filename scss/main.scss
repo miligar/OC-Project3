@@ -151,6 +151,7 @@ main{
         }
         &:hover{
             background-color: lighten($primary-color,35%);
+            cursor: pointer;
         }
         &:hover > .icon{
             color: $primary-color;

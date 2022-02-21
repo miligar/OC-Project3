@@ -308,6 +308,7 @@ body {
 }
 .how-it-works__step:hover {
   background-color: #f2eafb;
+  cursor: pointer;
 }
 .how-it-works__step:hover > .icon {
   color: #9356DC;
