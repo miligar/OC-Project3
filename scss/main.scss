@@ -1,15 +1,20 @@
 @import "./resets";
 @import "./variables";
 @import "./mixins&maps&keys";
+@import "./mediaqueries";
 
 
 
 body{
     width: 100%;
+    height: 100%;
     margin: auto;
     position: relative;
     margin-top: 0;
 
+}
+main{
+    @include media-width;
 }
 
 .load{
@@ -60,6 +65,7 @@ body{
     text-align: center;
     margin: 0.6rem;
     }
+    @include media-width;
 }
 
 
@@ -108,10 +114,12 @@ body{
         padding: 1rem 0;
     }
     &__wrap{
+        @include media-steps;
         display: flex;
         flex-direction: column;
     }
     &__step{
+        @include media-steps-size;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -135,11 +143,17 @@ body{
         & .icon{
             width: 1.5rem;
             margin: 0 1rem;
-            color: $background-color-3;
+            color: $icon-color;
             font-size: 1.1rem;
         }
         h4{
             font-weight: 500;
+        }
+        &:hover{
+            background-color: lighten($primary-color,35%);
+        }
+        &:hover > .icon{
+            color: $primary-color;
         }
     }
 }
@@ -154,13 +168,15 @@ body{
         font-weight: map-get($font-weights, regular);
     }
     &__wrap{
+        @include media-restaurants;
         display: flex;
         flex-direction: column;
-        
         row-gap: 1.2rem;
     }
     &__card{
+        @include media-card;
         position: relative;
+        
         a{
             display: flex;
             flex-direction: column;
@@ -172,10 +188,9 @@ body{
             border-radius: $border-card;
             justify-content: center;
                 img{
-                    height: 70%;
+                    height: 175px;
                     width: 100%;
                     object-fit: cover;
-                    object-position: 0 100%;
                     border-radius: $border-img;
                     margin-bottom: 0px;
                 }
@@ -190,21 +205,24 @@ body{
             right: 2rem;
             bottom: 2rem;
             font-size: 1.5rem;
-            color: $primary-color;
             z-index: 99;
             &.empty{
                 color: black;
             }
             &.full{
-                display: none;
+                opacity: 0;
             }
             &.empty:hover{
                 cursor: pointer;
                 color: $primary-color;
             }
-            &.empty:hover + .full{
-                display: block;
-                z-index: 98;
+            &.full:hover{
+                cursor: pointer;
+                color: transparent;
+                background: linear-gradient( $primary-color,$secondary-color);
+                background-clip: text;
+                transition: opacity 0.5s;
+                opacity: 1;
                 }
         }
     }
@@ -222,6 +240,17 @@ body{
             margin: 0;
         }
     }
+    &_new{
+        position: absolute;
+        right: 0.8rem;
+        top: 0.8rem;
+        background-color: $tertiary-color;
+        color: darken($tertiary-color, 45%);
+        padding: 0.4rem 1.5rem;
+        border-radius: 0.2rem;
+        font-size: 0.8rem;
+
+    }
 }
 
 /*-----------------------------------------style for pages of restaurants------------------------------*/
@@ -238,6 +267,7 @@ body{
 .background-img {
     width: 100%;
     height: 17rem;
+    @include media-size-pict;
     z-index: 1;
     position: relative;
     & img{
@@ -270,8 +300,10 @@ body{
         font-size: 1.7rem;
         font-weight: 500;
         padding:0.3rem 0.2rem 2rem 0.2rem;
+        @include media-center;
     }
     .fa-heart{
+        @include media-padding;
         position: absolute;
         right: 2rem;
         top: 2.4rem;
@@ -282,19 +314,24 @@ body{
             color: black;
         }
         &.full{
-            display: none;
+            opacity: 0;
         }
         &.empty:hover{
             cursor: pointer;
             color: $primary-color;
         }
-        &.empty:hover + .full{
-            display: block;
-            z-index: 99;
+        &.full:hover{
+            cursor: pointer;
+            color: transparent;
+            background: linear-gradient( $primary-color,$secondary-color);
+            background-clip: text;
+            transition: opacity 0.5s;
+            opacity: 1;
             }
     }
     &__section{
         width: 100%;
+        @include media-padding;
         h3{
             font-weight: map-get($font-weights, light);
             padding:0.3rem 0;
@@ -315,8 +352,10 @@ body{
         flex-direction: column;
         row-gap: 1.2rem;
         margin-bottom: 2rem;
+        @include media-menu;
     }
     & .dish{
+        @include media-dish;
         display: flex;
         flex-direction: row;
         width:100%;
@@ -402,6 +441,7 @@ body{
 
 
 footer{
+    @include media-padding-footer;
     display: flex;
     flex-direction: column;
     background: $background-color-3;
@@ -429,6 +469,10 @@ footer{
                 font-weight: map-get($font-weights, regular);
             }
         }
+        @include media-menu;
+
     }
+    @include media-width;
+
 
 }

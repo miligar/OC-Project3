@@ -6,10 +6,14 @@
     height: 3.3rem;
     border-radius: 3rem;
     padding: 0 1.6rem;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
     &:hover{
         cursor: pointer;
+        box-shadow: 7px 7px 10px 0px rgba(0, 0, 0, 0.5);
+        opacity: 0.9;
     }
 }
+
 
 $font-weights:(
     "light": 300,

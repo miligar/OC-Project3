@@ -1,0 +1,126 @@
+/*Max width of body*/
+@mixin media-width{
+    @media screen and (min-width: 992px){
+        max-width: 1440px;
+        margin: auto;
+    }
+}
+
+/*flex direction of menu cards changes to row when screen size increases*/
+@mixin media-menu{
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        column-gap: 0.5rem;
+    }
+    @media screen and (min-width: 992px){
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        column-gap: 1rem;
+    }
+}
+
+/*flex direction of restaurant cards changes to row when screen size increases*/
+@mixin media-restaurants{
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        column-gap: 0.5rem;
+    }
+    @media screen and (min-width: 992px){
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        column-gap: 1rem;
+    }
+}
+
+/*size of cards of restaurant*/
+@mixin media-card{
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        width: 47%;
+    }
+     @media screen and (min-width: 992px )and (max-width: 1350px){
+         width: 47%;
+    }
+     @media screen and (min-width: 1350px ){
+         width: 23%;
+    }
+}
+
+/*Changes size of top picture for every restaurant*/
+@mixin media-size-pict{
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        height: 20rem;
+      }
+     @media screen and (min-width: 992px )and (max-width: 1350px){
+        height: 25rem;
+     }
+     @media screen and (min-width: 1350px ){
+        height: 30rem;
+     }
+}
+
+/*controls size of dish name card*/
+@mixin media-dish{
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+       width: 345px;
+    }
+    @media screen and (min-width: 992px )and (max-width: 1350px){
+        width: 40%;
+    }
+    @media screen and (min-width: 1350px ){
+        width: 400px;
+    }
+}
+
+/*flex row for the'How It works' section*/
+@mixin media-steps{
+    @media screen and (min-width: 992px ){
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        column-gap: 1rem;
+    }
+}
+
+/*size of steps on 'How It Works' section*/
+@mixin media-steps-size{
+
+    @media screen and (min-width: 992px )and (max-width: 1350px){
+        width: 40%;
+    }
+    @media screen and (min-width: 1350px ){
+        width: 400px;
+    }
+}
+
+/*center the name of restaurant of menu pages*/
+@mixin media-center{
+    @media screen and (min-width: 768px){
+        margin: auto;
+    }
+}
+
+/*new padding for the menu wrap*/
+@mixin media-padding{
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        padding: 1rem 0.85rem;
+    }
+    @media screen and (min-width: 992px){
+        padding: 1rem 2rem;
+    }
+}
+
+
+@mixin media-padding-footer {
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+        padding: 1rem 0.5rem;
+    }
+    @media screen and (min-width: 992px){
+        padding: 1rem 1rem;
+    }
+}
