@@ -22,7 +22,8 @@ $font-weights:(
     "bold": 700
 );
 
-@keyframes buy{
+/*green check appears on dishes when hovering*/
+@keyframes buy{ /*final width of text*/
     0%{
         min-width: 85%;
     }
@@ -31,7 +32,7 @@ $font-weights:(
     }
 }
 
-@keyframes buy-inverse{
+@keyframes buy-inverse{/*initial width of text*/
     0%{
         min-width: 70%;
     }
@@ -40,7 +41,7 @@ $font-weights:(
     }
 }
 
-@keyframes check{
+@keyframes check{/*green check on hovering*/
     0%{
         transform: rotate(-420deg);
     }
@@ -49,7 +50,7 @@ $font-weights:(
     }
 }
 
-@keyframes check-inverse{
+@keyframes check-inverse{/*green check going to initial position*/
     0%{
         transform: rotate(0deg);
     }
@@ -58,6 +59,7 @@ $font-weights:(
     }
 }
 
+/*dishes will appear when arriving to site*/
 @keyframes dishes{
     0%{
         transform: translateY(100%);
@@ -72,7 +74,7 @@ $font-weights:(
     }
 }
 
-
+/*presentation of whole menu*/
 @keyframes menu{
     0%{
         opacity:0;
@@ -82,12 +84,13 @@ $font-weights:(
     }
 }
 
+/*behaviour of whole spinner*/
 @keyframes load{
     0%{z-index: 100;}
     95%{z-index: 100;}
     100%{z-index: -10;}
 }
-
+/*circle part of spinner*/
 @keyframes spinner{
     0%{transform : rotate(0deg);opacity:1;}
     25%{transform: rotate(90deg);}
@@ -95,7 +98,7 @@ $font-weights:(
     75%{transform: rotate(270deg);opacity:1;}
     90%{opacity: 0;}
   }
-  
+  /*title part of spinner*/
   @keyframes title{
     0%{color:#9356DC;opacity:1;}
     25%{color:#FF79DA;}

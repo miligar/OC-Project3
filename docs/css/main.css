@@ -18,7 +18,9 @@
   font-size: 1rem;
 }
 
+/*green check appears on dishes when hovering*/
 @keyframes buy {
+  /*final width of text*/
   0% {
     min-width: 85%;
   }
@@ -27,6 +29,7 @@
   }
 }
 @keyframes buy-inverse {
+  /*initial width of text*/
   0% {
     min-width: 70%;
   }
@@ -35,6 +38,7 @@
   }
 }
 @keyframes check {
+  /*green check on hovering*/
   0% {
     transform: rotate(-420deg);
   }
@@ -43,6 +47,7 @@
   }
 }
 @keyframes check-inverse {
+  /*green check going to initial position*/
   0% {
     transform: rotate(0deg);
   }
@@ -50,6 +55,7 @@
     transform: rotate(-420deg);
   }
 }
+/*dishes will appear when arriving to site*/
 @keyframes dishes {
   0% {
     transform: translateY(100%);
@@ -63,6 +69,7 @@
     opacity: 1;
   }
 }
+/*presentation of whole menu*/
 @keyframes menu {
   0% {
     opacity: 0;
@@ -71,6 +78,7 @@
     opacity: 1;
   }
 }
+/*behaviour of whole spinner*/
 @keyframes load {
   0% {
     z-index: 100;
@@ -82,6 +90,7 @@
     z-index: -10;
   }
 }
+/*circle part of spinner*/
 @keyframes spinner {
   0% {
     transform: rotate(0deg);
@@ -101,6 +110,7 @@
     opacity: 0;
   }
 }
+/*title part of spinner*/
 @keyframes title {
   0% {
     color: #9356DC;
@@ -147,6 +157,7 @@ body {
   }
 }
 
+/*loading spinner*/
 .load {
   position: fixed;
   width: 100vw;
